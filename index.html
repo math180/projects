@@ -78,11 +78,24 @@
         <h1>Boas-vindas!</h1>
         <div id="container">
             <label for="login">Digite seu e-mail</label>
-            <input id="login" name="email" type="email">
+            <input id="login" name="email" type="email" onchange="toggleButton ()">
             <label for="password">Senha</label>
-            <input id="password" type="password">
-            <button id="btn">Entrar</button>
+            <input id="password" type="password" onchange="toggleButton ()">
+            <button id="btn" disabled>Entrar</button>
         </div>
     </form>
+    <script>
+    const toggleButton = () => {
+
+        const email = document.querySelector('#login').value;
+        const password = document.querySelector('#password').value;
+
+        if(email && password) {
+            const btn = document.querySelector('#btn').disabled = false;
+            return
+        }         
+            document.getElementById('btn').disabled = true;
+} 
+    </script>
 </body>
 </html>
